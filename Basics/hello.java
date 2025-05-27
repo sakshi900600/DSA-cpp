@@ -450,13 +450,14 @@ public class hello{
                 list.add(maxFromRight);
             }
         }
-        System.out.println("Leaders in array: ");
+        
         for(int i=list.size()-1; i>=0; i--){
             System.out.print(list.get(i) + " ");
         }
 
 
         
+
 
 
 

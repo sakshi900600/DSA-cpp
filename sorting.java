@@ -108,7 +108,91 @@ public class sorting {
         }
     }
 
+    // heap sort --------------------------------
+    public static void heapify(int arr[], int n, int i){
+        int largest = i;
+        int left = 2*i + 1;
+        int right = 2*i + 2;
 
+        if(left < n && arr[left] > arr[largest]){
+            largest = left;
+        }
+
+        if(right < n && arr[right] > arr[largest]){
+            largest = right;
+        }
+
+        if(largest != i){
+            int temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
+
+            heapify(arr, n, largest);
+        }
+    }
+
+    public static void heapSort(int arr[]){
+        int n = arr.length;
+
+        // build heap
+        for(int i=n/2 - 1; i>=0; i--){
+            heapify(arr, n, i);
+        }
+
+        // extract elements from heap
+        for(int i=n-1; i>=0; i--){
+            // move current root to end
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // call max heapify on reduced heap
+            heapify(arr, i, 0);
+        }
+    }
+
+    // radix sort --------------------------------
+    public static void countingSortForRadix(int arr[], int exp){
+        int n = arr.length;
+        int output[] = new int[n];
+        int count[] = new int[10];
+        Arrays.fill(count, 0);
+
+        // store count of occurrences
+        for(int i=0; i<n; i++){
+            count[(arr[i]/exp) % 10]++;
+        }
+
+        // change count[i] so that it contains actual position of this digit in output[]
+        for(int i=1; i<10; i++){
+            count[i] += count[i-1];
+        }
+
+        // build the output array
+        for(int i=n-1; i>=0; i--){
+            output[count[(arr[i]/exp) % 10] - 1] = arr[i];
+            count[(arr[i]/exp) % 10]--;
+        }
+
+        // copy the output array to arr[]
+        for(int i=0; i<n; i++){
+            arr[i] = output[i];
+        }
+    }   
+
+    public static void radixSort(int arr[]){
+        int max = Integer.MIN_VALUE;
+        for(int i=0; i<arr.length; i++){
+            max = Math.max(max, arr[i]);
+        }
+
+        // do counting sort for every digit
+        for(int exp=1; max/exp > 0; exp *= 10){
+            countingSortForRadix(arr, exp);
+        }
+    }
+
+    
 
 
 
