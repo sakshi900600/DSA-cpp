@@ -335,6 +335,135 @@ public class hello{
 
 
 
+        // find minimum and maximum element in array
+        // int arr[] = {1,2,3,4,5,6,7,8,9};
+        // int min = Integer.MAX_VALUE;
+        // int max = Integer.MIN_VALUE;
+
+        // for(int i=0; i<arr.length; i++){
+        //     if(arr[i] > max){
+        //         max = arr[i];
+        //     }
+        //     if(arr[i] < min){
+        //         min = arr[i];
+        //     }
+        // }
+        // System.out.println("Min: " + min);
+        // System.out.println("Max: " + max);
+
+
+        // reverse an array --------------------------------
+        // int arr[] = {2,3,9,8,4};
+        // // Collections.reverse(Arrays.asList(arr));
+        // int n = arr.length;
+        // int revArr[] = new int[n];
+        // int j=0;
+        // for(int i=n-1; i>=0; i--){
+        //     revArr[j] = arr[i];
+        //     j++;
+        // }
+        // System.out.println("Reversed array: ");
+        // for(int i=0; i<n; i++){
+        //     System.out.print(revArr[i] + " ");
+        // }
+
+
+        // remove duplicated from sorted array -------------------
+        // int arr[] = {1,2,2,3,4,4,5};
+        // int n = arr.length;
+        // int i=0;
+        // for(int j=i+1; j<n; j++){
+        //     if(arr[i] != arr[j]){
+        //         i++;
+        //         arr[i] = arr[j];
+        //     }
+        // }
+
+        // System.out.println("Array after removing duplicates: ");
+        // for(int k=0; k<=i; k++){
+        //     System.out.print(arr[k] + " ");
+        // }
+
+
+        // left rotate an array by 1 
+        // int arr[] = {1,2,3,4,5};
+        // int first = arr[0];
+        // for(int j=0; j<arr.length-1; j++){
+        //     arr[j] = arr[j+1];
+        // }
+
+        // arr[arr.length-1] = first;
+        // System.out.println("Array after left rotation: ");
+        // for(int i=0; i<arr.length; i++){
+        //     System.out.print(arr[i] + " ");
+        // }
+
+
+        // move all zero at end
+        // int arr[] = {0,1,0,2,3,0,4};
+        // int n = arr.length;
+        // int left=0;
+        // for(int right=0; right<n; right++){
+        //     if(arr[right] != 0){
+        //         int temp = arr[left];
+        //         arr[left] = arr[right]; 
+        //         arr[right] = temp;
+        //         left++;
+        //     }
+        // }
+
+        // System.out.println("Array after moving all zero at end: ");
+        // for(int i=0; i<n; i++){
+        //     System.out.print(arr[i] + " ");
+        // }
+
+
+        // check if 2 arrays are equal
+        // int arr1[] = {1,2,3,4};
+        // int arr2[] = {1,2,3,4,7};
+        // // Arrays.equals(arr1, arr2);
+
+        // boolean isEqual = true;
+        // if(arr1.length != arr2.length){
+        //     isEqual = false;
+        // }
+        // else{
+        //     for(int i=0; i<arr1.length; i++){
+        //         if(arr1[i] != arr2[i]){
+        //             isEqual = false;
+        //             break;
+        //         }
+        //     }
+        // }
+        // System.out.println(isEqual);
+
+
+        // leader in array
+        int arr[] = {16, 17, 4, 3, 5, 2};
+        int n = arr.length; 
+        ArrayList<Integer> list = new ArrayList<>();
+        int maxFromRight = arr[n-1];
+        list.add(maxFromRight); // last element is always a leader
+        for(int i=n-2; i>=0; i--){
+            if(arr[i] > maxFromRight){
+                maxFromRight = arr[i];
+                list.add(maxFromRight);
+            }
+        }
+        System.out.println("Leaders in array: ");
+        for(int i=list.size()-1; i>=0; i--){
+            System.out.print(list.get(i) + " ");
+        }
+
+
+        
+
+
+
+
+
+        
+
 
 
     }
