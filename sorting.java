@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class sorting {
 
 
@@ -76,6 +76,41 @@ public class sorting {
     }
 
 
+    // counting sort --------------------------------
+    public static void countingSort(int arr[]){
+        int n = arr.length;
+        int max = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++){
+            max = Math.max(max, arr[i]);
+        }
+
+        int count[] = new int[max+1];
+        Arrays.fill(count, 0);
+
+        for(int i=0; i<n; i++){
+            count[arr[i]]++;
+        }
+
+        // cumulative count
+        for(int i=1; i<count.length; i++){
+            count[i] = count[i] + count[i-1];
+        }
+
+        int output[] =  new int[n];
+        for(int i=n-1; i>=0; i--){
+            output[count[arr[i]]-1] = arr[i];
+            count[arr[i]] = count[arr[i]]--;
+        }
+
+        // copy output to arr
+        for(int i=0; i<n; i++){
+            arr[i] = output[i];
+        }
+    }
+
+
+
+
 
     public static void main(String[] args) {
 
@@ -128,10 +163,11 @@ public class sorting {
 
 
         // quick sort --------------------------------
-        quickSort(arr, 0, n-1);
+        // quickSort(arr, 0, n-1);
 
 
-
+        // counting sort -----------------------------
+        countingSort(arr);
 
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
