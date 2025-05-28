@@ -194,7 +194,9 @@ public class sorting {
 
     
 
+   
 
+    
 
     public static void main(String[] args) {
 
@@ -251,7 +253,10 @@ public class sorting {
 
 
         // counting sort -----------------------------
-        countingSort(arr);
+        // countingSort(arr);
+
+        // radix sort --------------------------------
+        radixSort(arr);
 
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
